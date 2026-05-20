@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  km-postgres:
+    image: postgres:15-alpine
+    container_name: km-postgres-prod
+    restart: always
+    environment:
+      POSTGRES_DB: krishimitra
+      POSTGRES_USER: km_prod_admin
+      POSTGRES_PASSWORD: HardenKey9921_Matrix
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+    networks:
+      - km-prod-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U km_prod_admin -d krishimitra" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  km-redis:
+    image: redis:7-alpine
+    container_name: km-redis-prod
+    restart: always
+    command: redis-server --maxmemory 2gb --maxmemory-policy allkeys-lru --appendonly yes
+    volumes:
+      - redis_prod_data:/data
+    networks:
+      - km-prod-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  km-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    container_name: km-backend-prod
+    restart: always
+    environment:
+      - PROJECT_NAME=KrishiMitra AI Enterprise Core Production Cluster
+      - API_V1_STR=/api/v1
+      - DATABASE_URL=postgresql+asyncpg://km_prod_admin:HardenKey9921_Matrix@km-postgres:5432/krishimitra
+      - REDIS_URL=redis://km-redis:6379/0
+      - SECRET_KEY=PRODUCTION_VAULT_DECRYPTED_SHA512_SECURE_PHRASE_KEY_STUB_2026
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=60
+      - GEMINI_API_KEY=PROD_INTEGRATION_LIVE_VAULT_TOKEN_GEMINI_API_KEY
+      - UPLOAD_DIR=/app/backend/storage/uploads
+      - MAX_CONTENT_LENGTH=5242880
+    volumes:
+      - storage_uploads_prod:/app/backend/storage/uploads
+    networks:
+      - km-prod-network
+    depends_on:
+      km-postgres:
+        condition: service_healthy
+      km-redis:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/api/v1/health/" ]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+
+  km-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: km-frontend-prod
+    restart: always
+    environment:
+      - NEXT_PUBLIC_API_URL=https://krishimitra.ai/api/v1
+    networks:
+      - km-prod-network
+    depends_on:
+      - km-backend
+
+  km-nginx:
+    image: nginx:alpine
+    container_name: km-nginx-prod
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./devops/nginx/production.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - km-prod-network
+    depends_on:
+      - km-frontend
+      - km-backend
+
+volumes:
+  postgres_prod_data:
+    driver: local
+  redis_prod_data:
+    driver: local
+  storage_uploads_prod:
+    driver: local
+
+networks:
+  km-prod-network:
+    driver: bridge

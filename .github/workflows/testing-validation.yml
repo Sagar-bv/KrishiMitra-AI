@@ -1,0 +1,94 @@
+# .github/workflows/testing-validation.yml
+name: KrishiMitra Continuous Integration Testing & Quality Validation Pipeline
+
+on:
+  push:
+    branches: [ master, develop, 'feature/*', 'bugfix/*' ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  backend-test-suite:
+    name: Backend PyTest & Core Logic Verification
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres_test_node:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: km_tester
+          POSTGRES_PASSWORD: SecretTestPassword2026
+          POSTGRES_DB: krishimitra_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U km_tester -d krishimitra_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis_test_node:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Source Code Repository
+        uses: actions/checkout@v4
+
+      - name: Initialize Python Runtime Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Runtime and Testing Framework Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install pytest httpx pytest-asyncio pytest-cov
+
+      - name: Execute Full Integration and Unit Test Matrix
+        run: |
+          cd backend
+          pytest --cov=app --cov-report=xml --cov-report=term-missing -v
+        env:
+          ENVIRONMENT: testing
+          DEBUG: true
+          PROJECT_NAME: "KrishiMitra Test Suite Container Instance"
+          DATABASE_URL: postgresql://km_tester:SecretTestPassword2026@localhost:5432/krishimitra_test
+          REDIS_URL: redis://localhost:6379/0
+          JWT_SECRET_KEY: temporary_local_ci_cd_testing_secret_key_string_2026
+          GEMINI_API_KEY: mock_testing_key_value
+          OPENWEATHER_API_KEY: mock_weather_key_value
+          UPLOAD_STORAGE_ROOT_DIRECTORY: /tmp/km_uploads
+
+  frontend-test-suite:
+    name: Frontend TypeScript Verification & Type Checking
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Source Code Repository
+        uses: actions/checkout@v4
+
+      - name: Initialize Node.js System Architecture
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node Package Modules Matrix
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Execute Strict TypeScript Compilation Verification
+        run: |
+          cd frontend
+          npx tsc --noEmit

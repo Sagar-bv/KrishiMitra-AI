@@ -1,0 +1,93 @@
+{
+    "navbar": {
+        "dashboard": "Dashboard Center",
+        "insights": "AI Insights",
+        "market": "Market Ledger",
+        "planner": "Plantation Planner",
+        "logout": "Disconnect Terminal",
+        "language": "Select Node Language"
+    },
+    "dashboard": {
+        "title": "KrishiMitra Telemetry Core",
+        "subtitle": "Real-time automated agricultural matrix optimization system",
+        "farm_health_score": "Farm Matrix Integrity Score",
+        "system_status": "System Operational Status",
+        "operational": "OPERATIONAL",
+        "degraded": "DEGRADED PERFORMANCE",
+        "loading": "Synchronizing Data Streams...",
+        "sync_time": "Last Hardware Handshake"
+    },
+    "chatbot": {
+        "title": "Multilingual Cognitive Assistant",
+        "placeholder": "Query the neural farm model...",
+        "voice_start": "Initializing audio capture subsystem...",
+        "voice_stop": "Processing speech payload...",
+        "system_connected": "Duplex WebSocket established stream matrix node",
+        "system_disconnected": "WebSocket terminal decoupled. Attempting hard recovery...",
+        "processing": "Synthesizing localized matrix advisory..."
+    },
+    "upload": {
+        "drag_drop": "Drag & Drop leaf specimen target configuration",
+        "browse": "Browse Local Filesystem",
+        "max_size": "Maximum payload boundary limit: 15MB",
+        "invalid_type": "Mime configuration rejected. Provide high-resolution JPEG, PNG, or WEBP formats."
+    },
+    "disease_detection": {
+        "title": "CNN Leaf Diagnostics Engine",
+        "analyze_btn": "Execute Model Inference",
+        "analyzing": "Running neural grid cross-examination operations...",
+        "result_healthy": "Specimen exhibits healthy cellular layout boundaries",
+        "result_infected": "Pathogenic anomaly matrix detected",
+        "confidence": "Classification Confidence Ratio"
+    },
+    "recommendation": {
+        "title": "AI Target Treatment Matrix",
+        "chemical_remedy": "Precision Molecular Compounds Protocol",
+        "organic_remedy": "Biological/Organic Mitigation Array",
+        "preventative_action": "Proactive Bio-Security Hardening Steps",
+        "dosage": "Engineered Dosage Concentration Metrics"
+    },
+    "weather": {
+        "title": "Micro-Climate Matrix Telemetry",
+        "temperature": "Ambient Thermal Matrix",
+        "humidity": "Atmospheric Saturation Quotient",
+        "precipitation": "Rainfall Inundation Probability",
+        "wind_velocity": "Wind Vector Velocity",
+        "advisory_alert": "Climate event approaching. System cache optimized for defensive routing."
+    },
+    "market": {
+        "title": "Commodity Transaction Ledger Analytics",
+        "crop_name": "Agricultural Commodity Identity",
+        "current_price": "Spot Liquidity Index Metric",
+        "trend": "Velocity Direction Indicator",
+        "volume": "Trading Liquidity Volume Array",
+        "forecast": "Predictive Market Arbitration Horizon"
+    },
+    "plantation_planner": {
+        "title": "Multi-Year Macro Investment Allocation Planner",
+        "crop_suitability": "AI Crop Suitability Classification Rank",
+        "timeline": "Chronological Harvest Scheduling Vectors",
+        "expected_yield": "Calculated Metric Tons Target Output",
+        "risk_index": "Actuarial Exposure Vulnerability Scale",
+        "optimize_btn": "Regenerate Crop Rotation Path Optimization"
+    },
+    "auth": {
+        "login_title": "Initialize Operator Handshake Terminal",
+        "username": "Access Identifier String",
+        "password": "Cryptographic Access Key",
+        "submit": "Authenticate Infrastructure Credentials",
+        "failed": "Cryptographic authentication token signature match rejected.",
+        "success": "Handshake validated. Allocating memory workspace environments..."
+    },
+    "buttons": {
+        "execute": "Execute Protocol",
+        "cancel": "Abort Routine",
+        "save": "Commit State Change",
+        "reset": "Flush State Configurations"
+    },
+    "alerts": {
+        "error_title": "Core Exception Handler Fault Alert",
+        "success_title": "Transactional Sequence Successfully Committed",
+        "warning_title": "Boundary Structural Drift Detection Alert"
+    }
+}

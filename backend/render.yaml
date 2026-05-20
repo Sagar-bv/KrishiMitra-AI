@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: krishimitra-core-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 2"
+    plan: starter
+    region: oregon
+    envVars:
+      - key: PROJECT_NAME
+        value: "KrishiMitra Production App Node"
+      - key: API_V1_STR
+        value: "/api/v1"
+      - key: ALGORITHM
+        value: "HS256"
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "1440"
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

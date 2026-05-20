@@ -1,0 +1,7 @@
+[MODEL CACHE STORAGE BOUNDARY DEFINITION]
+Expected Underlying Structural Format: Keras HDF5 (Hierarchical Data Format v5) Object representation containing complete system architecture configuration arrays, model layer topologies, compile specifications, and optimized optimization weights arrays serialized via TensorFlow 2.1x serialization bindings.
+
+To replace this documentation vector with production-ready operational binaries:
+1. Compile your final TensorFlow pipeline model.
+2. Execute serialization using the instruction sequence: `model.save('backend/ml/models_cache/cnn_disease_v1.h5')`.
+3. Ensure absolute disk path parity scales match the parameters loaded inside `backend/ml/services/inference_engine.py`.

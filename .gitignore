@@ -1,0 +1,69 @@
+# ==============================================================================
+# KRISHIMITRA ENTERPRISE ROOT CONFIGURATION SYSTEM - REPOSITORY IGNORES
+# ==============================================================================
+
+# Node / Next.js Frontend Framework
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.pnpm-debug.log*
+frontend/yarn-error.log*
+frontend/.eslintcache
+
+# Python / FastAPI Backend Subsystems
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/build/
+backend/dist/
+backend/*.egg-info/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/htmlcov/
+backend/.cache
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+frontend/env/
+backend/env/
+
+# Sensitive Variables & Keys (Harden Boundaries)
+.env
+.env.local
+.env.production
+.env.development
+*.pem
+*.key
+*.pub
+secret_key.txt
+
+# Machine Learning Binaries and Cache Matrices
+backend/ml/models_cache/*.h5
+!backend/ml/models_cache/cnn_disease_v1.h5
+backend/ml/training/raw_dataset_payloads/
+
+# Volatile Upload Paths and Block Storage
+backend/storage/uploads/*
+!backend/storage/uploads/.gitkeep
+
+# Operating System / IDE Local Artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.sass-cache/
+
+# Docker Local Engine Volatiles
+.docker/
+devops/nginx/certs/
