@@ -111,21 +111,126 @@ KrishiMitra AI addresses these challenges by combining AI technologies with a us
 ## 🏗️ System Architecture
 
 ```text
-User
- │
- ▼
-Frontend (Next.js + TypeScript)
- │
- ▼
-Backend API (FastAPI)
- │
- ├─────────────┬─────────────┬─────────────┐
- ▼             ▼             ▼             ▼
-AI Engine    ML Models    Database      Redis
- │
- ▼
-Google Gemini AI
+┌──────────────────────────────────────────────────────────────┐
+│                        END USERS                             │
+│ Farmers | Agriculture Experts | Researchers | Admins         │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  FRONTEND LAYER (Next.js)                    │
+│                                                              │
+│  • Landing Page                                              │
+│  • Authentication Gateway                                    │
+│  • Dashboard                                                 │
+│  • Disease Detection Interface                               │
+│  • Weather Intelligence Dashboard                            │
+│  • Market Analytics Dashboard                                │
+│  • Crop Planning Module                                      │
+│  • AI Assistant Chat Interface                               │
+└───────────────────────┬──────────────────────────────────────┘
+                        │ REST API / WebSocket
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  API GATEWAY (FastAPI)                       │
+│                                                              │
+│  Authentication Service                                      │
+│  Health Monitoring Service                                   │
+│  Dashboard Service                                           │
+│  WebSocket Communication Service                             │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+        ┌───────────────┼────────────────┬────────────────┐
+        ▼               ▼                ▼                ▼
+
+┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐
+│ Weather Engine │ │ Market Engine  │ │ Planning Engine│ │ AI Chat Engine │
+└───────┬────────┘ └───────┬────────┘ └───────┬────────┘ └───────┬────────┘
+        │                  │                  │                  │
+        ▼                  ▼                  ▼                  ▼
+
+┌──────────────────────────────────────────────────────────────┐
+│             COMPUTER VISION & AI LAYER                       │
+│                                                              │
+│  • Crop Disease Detection                                    │
+│  • Leaf Image Classification                                 │
+│  • CNN / TensorFlow Models                                   │
+│  • Feature Extraction                                        │
+│  • Disease Prediction Engine                                 │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│               GENERATIVE AI INTELLIGENCE                     │
+│                                                              │
+│  Google Gemini AI                                            │
+│  • Agricultural Question Answering                           │
+│  • Crop Advisory                                              │
+│  • Disease Explanation                                        │
+│  • Treatment Recommendations                                  │
+│  • Multilingual Support                                       │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                    DATA MANAGEMENT LAYER                     │
+│                                                              │
+│  SQL Database                                                │
+│  • User Data                                                 │
+│  • Crop Data                                                 │
+│  • Disease Records                                           │
+│  • Planning Records                                          │
+│                                                              │
+│  Redis Cache                                                 │
+│  • Session Storage                                           │
+│  • API Response Cache                                        │
+│  • Real-Time Data Cache                                      │
+└───────────────────────┬──────────────────────────────────────┘
+                        │
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│                  EXTERNAL SERVICES                           │
+│                                                              │
+│  • Google Gemini API                                         │
+│  • Weather Data APIs                                         │
+│  • Market Price APIs                                         │
+│  • Image Processing Models                                   │
+└──────────────────────────────────────────────────────────────┘
 ```
+
+## 🔄 Data Flow Architecture
+
+```text
+Farmer Uploads Leaf Image
+            │
+            ▼
+Frontend (Next.js)
+            │
+            ▼
+FastAPI Backend
+            │
+            ▼
+Disease Detection Module
+            │
+            ▼
+TensorFlow CNN Model
+            │
+            ▼
+Disease Prediction
+            │
+            ▼
+Gemini AI Recommendation Engine
+            │
+            ▼
+Organic Solutions
+Chemical Solutions
+Prevention Methods
+Crop Advisory
+            │
+            ▼
+Results Displayed on Dashboard
+```
+
 
 ---
 
@@ -195,26 +300,34 @@ docker-compose up
 
 ---
 
-## 📸 Screenshots
+## 📸 Application Screenshots
 
-### Home Page
+### 🏠 Landing Page
+![Homepage](screenshots/homepage.jpeg)
 
-Project screenshots will be added soon.
+### 🔐 Authentication Gateway
+![Login](screenshots/login.jpeg)
 
-### AI Chat Assistant
+### 📊 Dashboard Overview
+![Dashboard](screenshots/dashboard-overview.jpeg)
 
-Project screenshots will be added soon.
+### 🌦️ Weather Intelligence
+![Weather](screenshots/weather-intelligence.jpeg)
 
-### Disease Detection Module
+### 📈 Market Analytics
+![Market Analytics](screenshots/market-analytics.jpeg)
 
-Project screenshots will be added soon.
+### 🌱 Disease Detection
+![Disease Detection](screenshots/disease-detection.jpeg)
 
-### Weather Intelligence Dashboard
+### 🌾 Crop Planning
+![Crop Planner](screenshots/crop-planner.jpeg)
 
-Project screenshots will be added soon.
+### 🤖 AI Assistant
+![AI Assistant](screenshots/ai-assistant.png.jpeg)
 
----
-
+### 📚 API Documentation
+![API Docs](screenshots/api-docs.jpeg)
 ## 🎯 Future Enhancements
 
 * IoT Sensor Integration
