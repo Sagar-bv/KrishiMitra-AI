@@ -324,7 +324,7 @@ docker-compose up
 ![Crop Planner](screenshots/crop-planner.jpeg)
 
 ### 🤖 AI Assistant
-![AI Assistant](screenshots/ai-assistant.png.jpeg)
+![AI Assistant](screenshots/ai-assistant.jpeg)
 
 ### 📚 API Documentation
 ![API Docs](screenshots/api-docs.jpeg)
