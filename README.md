@@ -1,14 +1,15 @@
 <p align="center">
-  <img src="banner.png" alt="KrishiMitra AI Banner" width="100%">
+  <img src="banner.png" alt="KrishiMitra Banner">
 </p>
 
-<br>
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Next.js](https://img.shields.io/badge/Next.js-Frontend-black)
+![Gemini AI](https://img.shields.io/badge/Google-Gemini-orange)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-red)
+![Status](https://img.shields.io/badge/Project-Completed-success)
 
-![Status](https://img.shields.io/badge/Status-Active-success)
-![AI](https://img.shields.io/badge/AI-Gemini-blue)
-![Backend](https://img.shields.io/badge/Backend-FastAPI-green)
-![Frontend](https://img.shields.io/badge/Frontend-Next.js-black)
-![Language](https://img.shields.io/badge/Language-Python-yellow)
+
 # 🌾 KrishiMitra AI
 
 ## AI-Powered Multilingual Agriculture Assistant
@@ -111,91 +112,38 @@ KrishiMitra AI addresses these challenges by combining AI technologies with a us
 ## 🏗️ System Architecture
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│                        END USERS                             │
-│ Farmers | Agriculture Experts | Researchers | Admins         │
-└───────────────────────┬──────────────────────────────────────┘
-                        │
-                        ▼
-┌──────────────────────────────────────────────────────────────┐
-│                  FRONTEND LAYER (Next.js)                    │
-│                                                              │
-│  • Landing Page                                              │
-│  • Authentication Gateway                                    │
-│  • Dashboard                                                 │
-│  • Disease Detection Interface                               │
-│  • Weather Intelligence Dashboard                            │
-│  • Market Analytics Dashboard                                │
-│  • Crop Planning Module                                      │
-│  • AI Assistant Chat Interface                               │
-└───────────────────────┬──────────────────────────────────────┘
-                        │ REST API / WebSocket
-                        ▼
-┌──────────────────────────────────────────────────────────────┐
-│                  API GATEWAY (FastAPI)                       │
-│                                                              │
-│  Authentication Service                                      │
-│  Health Monitoring Service                                   │
-│  Dashboard Service                                           │
-│  WebSocket Communication Service                             │
-└───────────────────────┬──────────────────────────────────────┘
-                        │
-        ┌───────────────┼────────────────┬────────────────┐
-        ▼               ▼                ▼                ▼
+Farmer/User
+     │
+     ▼
+Web Application (Next.js)
+     │
+     ▼
+Authentication Layer
+     │
+     ▼
+KrishiMitra API Gateway (FastAPI)
+     │
+ ┌───┼──────────────┬──────────────┬──────────────┬──────────────┐
+ ▼   ▼              ▼              ▼              ▼              ▼
 
-┌────────────────┐ ┌────────────────┐ ┌────────────────┐ ┌────────────────┐
-│ Weather Engine │ │ Market Engine  │ │ Planning Engine│ │ AI Chat Engine │
-└───────┬────────┘ └───────┬────────┘ └───────┬────────┘ └───────┬────────┘
-        │                  │                  │                  │
-        ▼                  ▼                  ▼                  ▼
+Weather      Disease        Crop         Market       AI Chat
+Module       Detection      Planner      Analytics    Assistant
+             Module         Module       Module
 
-┌──────────────────────────────────────────────────────────────┐
-│             COMPUTER VISION & AI LAYER                       │
-│                                                              │
-│  • Crop Disease Detection                                    │
-│  • Leaf Image Classification                                 │
-│  • CNN / TensorFlow Models                                   │
-│  • Feature Extraction                                        │
-│  • Disease Prediction Engine                                 │
-└───────────────────────┬──────────────────────────────────────┘
-                        │
-                        ▼
-┌──────────────────────────────────────────────────────────────┐
-│               GENERATIVE AI INTELLIGENCE                     │
-│                                                              │
-│  Google Gemini AI                                            │
-│  • Agricultural Question Answering                           │
-│  • Crop Advisory                                              │
-│  • Disease Explanation                                        │
-│  • Treatment Recommendations                                  │
-│  • Multilingual Support                                       │
-└───────────────────────┬──────────────────────────────────────┘
-                        │
-                        ▼
-┌──────────────────────────────────────────────────────────────┐
-│                    DATA MANAGEMENT LAYER                     │
-│                                                              │
-│  SQL Database                                                │
-│  • User Data                                                 │
-│  • Crop Data                                                 │
-│  • Disease Records                                           │
-│  • Planning Records                                          │
-│                                                              │
-│  Redis Cache                                                 │
-│  • Session Storage                                           │
-│  • API Response Cache                                        │
-│  • Real-Time Data Cache                                      │
-└───────────────────────┬──────────────────────────────────────┘
-                        │
-                        ▼
-┌──────────────────────────────────────────────────────────────┐
-│                  EXTERNAL SERVICES                           │
-│                                                              │
-│  • Google Gemini API                                         │
-│  • Weather Data APIs                                         │
-│  • Market Price APIs                                         │
-│  • Image Processing Models                                   │
-└──────────────────────────────────────────────────────────────┘
+ ▼              ▼              ▼              ▼              ▼
+
+Weather API   CNN Model    Recommendation  Market DB   Gemini AI
+Data          OpenCV       Engine          Engine
+
+     │
+     ▼
+Response Generation
+     │
+     ▼
+Dashboard Visualization
+     │
+     ▼
+Farmer Decision Support
 ```
 
 ## 🔄 Data Flow Architecture
@@ -328,6 +276,22 @@ docker-compose up
 
 ### 📚 API Documentation
 ![API Docs](screenshots/api-docs.jpeg)
+
+## 📊 Project Statistics
+
+| Module | Status |
+|----------|----------|
+| Authentication | ✅ Completed |
+| Dashboard | ✅ Completed |
+| Weather Intelligence | ✅ Completed |
+| Disease Detection | ✅ Completed |
+| Crop Recommendation | ✅ Completed |
+| Market Analytics | ✅ Completed |
+| AI Assistant | ✅ Completed |
+| API Documentation | ✅ Completed |
+| CI/CD Pipeline | ✅ Completed |
+
+
 ## 🎯 Future Enhancements
 
 * IoT Sensor Integration
