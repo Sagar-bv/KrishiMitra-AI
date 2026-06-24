@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="banner.png" alt="KrishiMitra AI Banner" width="100%">
+</p>
+
+<br>
 # 🌾 KrishiMitra AI
 
 ## AI-Powered Multilingual Agriculture Assistant
