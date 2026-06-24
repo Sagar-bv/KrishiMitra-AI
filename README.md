@@ -3,6 +3,12 @@
 </p>
 
 <br>
+
+![Status](https://img.shields.io/badge/Status-Active-success)
+![AI](https://img.shields.io/badge/AI-Gemini-blue)
+![Backend](https://img.shields.io/badge/Backend-FastAPI-green)
+![Frontend](https://img.shields.io/badge/Frontend-Next.js-black)
+![Language](https://img.shields.io/badge/Language-Python-yellow)
 # 🌾 KrishiMitra AI
 
 ## AI-Powered Multilingual Agriculture Assistant
